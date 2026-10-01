@@ -1,0 +1,74 @@
+
+
+title {
+    color: #fafafa;
+}
+
+p {
+    color: #fafafa;
+}
+
+head {
+
+}
+
+body {
+    background-color: #18181b;
+    color: #fafafa;
+}
+
+h1 {
+    color: #fafafa;
+}
+
+form {
+    color: #27272A;
+}
+
+label {
+    color: #fafafa;
+}
+
+#search {
+    background-color: #3F3F46;
+    color: #fafafa;
+    border-color: #717171;
+
+}
+
+#search::placeholder {
+    color: #A1A1AA;
+}
+
+label {
+    color: #fafafa;
+}
+
+#language {
+    background-color: #3F3F46;
+    color: #fafafa;
+    border-color: #71717A;
+}
+
+
+button {
+    background-color: #C4B5FD,
+
+}
+
+option {
+    background-color: #3F3F46;
+    color: #fafafa;
+}
+
+button:hover {
+    background-color: #A78BFA;
+    cursor: pointer;
+}
+
+footer {
+    color: #fafafa;
+}
+
+
+
