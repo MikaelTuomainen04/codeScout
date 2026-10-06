@@ -95,5 +95,14 @@ footer {
     text-align: center;
 }
 
+#search-summary {
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 6px;
+    background-color: #3F3F46;
+    color: #fafafa;
+    border-color: #71717A;
+}
+
 
 
