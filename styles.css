@@ -102,6 +102,7 @@ footer {
     background-color: #3F3F46;
     color: #fafafa;
     border-color: #71717A;
+    white-space: pre-line;
 }
 
 
