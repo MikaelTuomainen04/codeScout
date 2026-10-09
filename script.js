@@ -22,6 +22,8 @@ async function getData(searchValue, languageValue) {
         console.log(data.items[0]);
         console.log(data.items[0].name);
 
+        results.textContent = "";
+
         for (let repository of data.items) {
             console.log("Repository name: " + repository.name + " | Language: " + repository.language + " | Stars: " + repository.stargazers_count);
 
