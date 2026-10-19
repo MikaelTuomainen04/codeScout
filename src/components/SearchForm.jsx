@@ -1,12 +1,66 @@
-export function SearchForm() {
+import { useState } from "react";
+
+export function SearchForm( {onResults} ) {
+
+    const [searchValue, setSearchValue] = useState("");
+    const [languageValue, setLanguegeValue] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+
+    function handleSubmit (e) {
+            e.preventDefault();
+
+            console.log("Search: ", searchValue);
+            console.log("Language: ", languageValue)
+
+            if (searchValue.trim() !== "") {
+            getData(searchValue, languageValue);
+        }
+    }
+
+    async function getData(searchValue, languageValue) {
+
+        setLoading(true);
+        setError("");
+
+        try {
+
+            const query = `${searchValue}${languageValue ? ` language:${languageValue}` : ""}`;
+
+            const response = await fetch( `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}`);
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`HTTP error! Status: ${errorData.message}`)
+            }
+
+            const data = await response.json();
+
+            /*console.log(data.items)
+            console.log(data.items.length)
+            console.log(data.items[0])
+            console.log(data.items[0].name) */
+            
+            onResults(data.items);
+            
+
+        } catch(error) {
+            console.error(error);
+            setError("Haku epäonnistui! Yritä uudelleen.")
+            
+        } finally  {
+            setLoading(false);
+        }
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
 
         <label htmlFor="search">What do you want to learn?</label>
-        <input id ="search" type="search" />
+        <input id ="search" type="search" value = {searchValue} onChange = {(e) => setSearchValue(e.target.value)}/>
 
         <label htmlFor="language">Language:</label>
-        <select name="language" id="language">
+        <select name="language" id="language" value = {languageValue} onChange = {(e) => setLanguegeValue(e.target.value)}>
             <option value="">--Any language--</option>
                 <option value="Ada">Ada</option>
                 <option value="Assembly">Assembly</option>
@@ -47,7 +101,11 @@ export function SearchForm() {
                 <option value="Zig">Zig</option>
         </select>
 
-        <button type="submit">Search</button>
+        <button type="submit" disabled={loading}>
+            {loading ? "Searching..." : "Search"}
+        </button>
+
+        {error && <p role="alert">{error}</p>}
         
         </form>
     );

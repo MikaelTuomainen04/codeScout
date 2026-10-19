@@ -104,3 +104,10 @@ footer {
     border-color: #71717A;
     white-space: pre-line;
 }
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 24px;
+    text-align: center;
+}
