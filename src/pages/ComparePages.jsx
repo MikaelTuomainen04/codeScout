@@ -1,7 +1,13 @@
+import { ComparasionChart } from "../components/ComparasionChart";
+
 export function ComparePages( { projects, onRemoveFromCompare }) {
     return (
     <section>
       <h2>Compare projects</h2>
+
+      {projects.length > 0 && (
+        <ComparasionChart projects={projects} />
+        )}
 
       {projects.length === 0 ? (
         <p>No projects selected for comparison yet.</p>
