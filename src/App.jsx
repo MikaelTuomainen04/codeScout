@@ -8,25 +8,39 @@ import { SearchPage } from "./pages/SearchPage.jsx";
 import { HelpPage } from "./pages/HelpPage.jsx";
 import "./App.css";
 
+
 function App() {
 
   const [compareProjects, setComparedProjects] = useState([]);
 
-  function handleAddToCompare(repo) {
+  function handleAddtoCompare(repo) {
+    console.log("Vertailuun klikattu: ", repo)
+    const alreadyCompared = compareProjects.some(
+    (project) => project.id === repo.id
+    );
 
-    console.log(repo);
-    console.log(repo.id);
-    console.log(repo.full_name);
-
-    onclick={() => onAddToCompare(repo)}
+    if(alreadyCompared) {
+      return;
+    } else {
+      setComparedProjects([...compareProjects, repo])
+    }
   }
 
+  function handleRemoveFromCompare(id) {
+    setComparedProjects(
+      compareProjects.filter((project) => project.id !== id)
+    );
+  }
+
+  
   const [results, setResults] = useState([]);
 
   return (
     <>
     <Header title = "codeScout" />
     <Navbar />
+
+    <p> projects selected: {compareProjects.length}</p>
 
     <main>
 
@@ -36,13 +50,16 @@ function App() {
           path="/"
           element={
             <SearchPage 
-            results={results} onResults={setResults} 
+            results={results} 
+            onResults={setResults}
+            onAddToCompare={handleAddtoCompare} 
             />
           }
         />
 
-        <Route path="/compare" element={<ComparePages />} />
         <Route path="/helpPage" element={<HelpPage />} /> 
+        <Route path="/compare" element={<ComparePages projects={compareProjects} onRemoveFromCompare={handleRemoveFromCompare} />} 
+        />
 
       </Routes>
 
