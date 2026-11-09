@@ -40,7 +40,6 @@ function App() {
     <Header title = "codeScout" />
     <Navbar />
 
-    <p> projects selected: {compareProjects.length}</p>
 
     <main>
 
@@ -52,7 +51,8 @@ function App() {
             <SearchPage 
             results={results} 
             onResults={setResults}
-            onAddToCompare={handleAddtoCompare} 
+            onAddToCompare={handleAddtoCompare}
+            selectedCount={compareProjects.length} 
             />
           }
         />
