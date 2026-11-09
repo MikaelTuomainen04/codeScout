@@ -57,10 +57,10 @@ export function SearchForm( {onResults} ) {
         <form onSubmit={handleSubmit}>
 
         <label htmlFor="search">What do you want to learn?</label>
-        <input id ="search" type="search" value = {searchValue} onChange = {(e) => setSearchValue(e.target.value)}/>
+        <input className="form-control" id ="search" type="search" value = {searchValue} onChange = {(e) => setSearchValue(e.target.value)}/>
 
         <label htmlFor="language">Language:</label>
-        <select name="language" id="language" value = {languageValue} onChange = {(e) => setLanguegeValue(e.target.value)}>
+        <select className="form-select" name="language" id="language" value = {languageValue} onChange = {(e) => setLanguegeValue(e.target.value)}>
             <option value="">--Any language--</option>
                 <option value="Ada">Ada</option>
                 <option value="Assembly">Assembly</option>
@@ -101,11 +101,15 @@ export function SearchForm( {onResults} ) {
                 <option value="Zig">Zig</option>
         </select>
 
-        <button type="submit" disabled={loading}>
+        <button className="btn btn-primary" type="submit" disabled={loading}>
             {loading ? "Searching..." : "Search"}
         </button>
 
-        {error && <p role="alert">{error}</p>}
+                {error && (
+        <p className="alert alert-danger mb-0" role="alert">
+            {error}
+        </p>
+        )}
         
         </form>
     );

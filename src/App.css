@@ -74,17 +74,6 @@ select {
 }
 
 
-button {
-    background-color: #C4B5FD;
-    padding: 10px 20px;
-    border: none;
-}
-
-button:hover {
-    background-color: #A78BFA;
-    cursor: pointer;
-}
-
 option {
     background-color: #3F3F46;
     color: #fafafa;
@@ -110,4 +99,30 @@ h2 {
     font-weight: bold;
     margin: 24px;
     text-align: center;
+}
+.nav-link {
+    color: #C4B5FD;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: #fafafa;
+}
+
+.btn-primary {
+    --bs-btn-color: #18181b;
+    --bs-btn-bg: #C4B5FD;
+    --bs-btn-border-color: #C4B5FD;
+
+    --bs-btn-hover-color: #18181b;
+    --bs-btn-hover-bg: #A78BFA;
+    --bs-btn-hover-border-color: #A78BFA;
+
+    --bs-btn-active-color: #18181b;
+    --bs-btn-active-bg: #A78BFA;
+    --bs-btn-active-border-color: #A78BFA;
+
+    --bs-btn-disabled-color: #18181b;
+    --bs-btn-disabled-bg: #C4B5FD;
+    --bs-btn-disabled-border-color: #C4B5FD;
 }
