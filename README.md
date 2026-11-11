@@ -1,16 +1,33 @@
-# React + Vite
+# CodeScout
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CodeScout on Web-ohjelmointi I -kurssilla tehty React-sovellus, jolla voi etsiä GitHub-projekteja ohjelmoinnin opiskeluun.
 
-Currently, two official plugins are available:
+**[Avaa julkaistu CodeScout](https://mikaeltuomainen04.github.io/codeScout/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Käyttö
 
-## React Compiler
+1. Kirjoita hakusana ja rajaa hakua halutessasi ohjelmointikielen mukaan.
+2. Lisää kiinnostavat projektit vertailuun painamalla **Add to comparison**.
+3. Avaa **Compare search results**. Näet valittujen projektien kuvaukset, kielet ja tähtimäärät. Kaavio vertailee tähtimääriä, ja voit poistaa projekteja vertailusta.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Instructions**-sivulla on tarkemmat käyttöohjeet. Vertailuvalinnat tyhjenevät, kun lataat sivun uudelleen.
 
-## Expanding the ESLint configuration
+## Käynnistys omalla koneella
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Asenna riippuvuudet ja käynnistä kehityspalvelin projektikansiossa.
+
+```bash
+npm install
+npm run dev
+```
+
+Avaa terminaalissa näkyvä **Local**-osoite selaimessa.
+
+## Teknologiat
+
+- React ja Vite sovelluksen toteutukseen
+- React Router kolmen näkymän navigointiin
+- GitHub REST API projektien hakuun
+- Bootstrap käyttöliittymän muotoiluun
+- Chart.js tähtimäärien vertailukaavioon
+

@@ -36,10 +36,6 @@ export function SearchForm( {onResults} ) {
 
             const data = await response.json();
 
-            /*console.log(data.items)
-            console.log(data.items.length)
-            console.log(data.items[0])
-            console.log(data.items[0].name) */
             
             onResults(data.items);
             
