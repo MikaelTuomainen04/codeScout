@@ -8,7 +8,11 @@ export function ComparasionChart({ projects }) {
     const chart = new Chart(canvasRef.current, {
       type: "bar",
       data: {
-        labels: projects.map((repo) => repo.full_name),
+        labels: projects.map((repo) =>
+          repo.name.length > 16
+            ? `${repo.name.slice(0, 16)}…`
+            : repo.name
+        ),
         datasets: [
           {
             label: "GitHub stars",
@@ -18,25 +22,26 @@ export function ComparasionChart({ projects }) {
         ],
       },
       options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            labels: { color: "#fafafa" },
-          },
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: { color: "#fafafa" },
         },
-        scales: {
-          x: {
-            ticks: { color: "#fafafa" },
-          },
-          y: {
-            beginAtZero: true,
-            ticks: {
-              color: "#fafafa",
-              precision: 0,
-            },
+      },
+      scales: {
+        x: {
+          ticks: { color: "#fafafa" },
+        },
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: "#fafafa",
+            precision: 0,
           },
         },
       },
+    },
     });
 
     return () => {
@@ -45,14 +50,17 @@ export function ComparasionChart({ projects }) {
   }, [projects]);
 
   return (
-    <section>
-      <h3>Project popularity</h3>
-      <p>GitHub stars indicate popularity, not code quality.</p>
+  <section>
+    <h3>Project popularity</h3>
+    <p>GitHub stars indicate popularity, not code quality.</p>
+
+    <div className="chart-container">
       <canvas
         ref={canvasRef}
         role="img"
         aria-label="GitHub stars of selected projects. Values are listed below."
       />
-    </section>
-  );
+    </div>
+  </section>
+);
 }
